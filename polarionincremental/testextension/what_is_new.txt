@@ -1,0 +1,7 @@
+Version 1.0
+===========
+- Ant file for creating hook jar
+- Property file ReusedFieldHook.properties (in root of jar). Supporting properties:
+  GENERIC_PROJECT_ID=GNRC
+  REUSE_LINK_ROLE_NAME=reuses
+  KEY_FIELDS=title,description,attachments

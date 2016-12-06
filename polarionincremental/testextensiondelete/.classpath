@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/com.adva.polarion.WorkItemActionInterceptor"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/com.polarion.core.util"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/com.polarion.subterra.base"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

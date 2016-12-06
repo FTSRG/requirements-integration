@@ -1,0 +1,59 @@
+<!--
+  -  Copyright 2012 ADVA AG Optical Networking. All rights reserved.
+  -
+  -  Author: Alexey Andrianov
+  -
+  -  $Id:$
+  -->
+<project name="interceptor-hooks" default="release">
+	
+	<property file="build.properties"/>
+
+	<target name="jar" description="produces the project jar file">
+    <delete file="${archive.dir}/${jar.name}"/>
+		<jar destfile="${archive.dir}/${jar.name}">
+			<fileset dir="${classes.dir}">
+				<include name="**/*.*"/>
+			</fileset>
+			<fileset dir="${basedir}">
+				<include name="license.txt"/>
+			    <include name="README.txt"/>
+			</fileset>
+			<fileset dir="${properties.dir}">
+			    <include name="${property.file}"/>				
+			</fileset>
+			<manifest>
+				<attribute name="version" value="${version}"/>
+     			<attribute name="author" value="${author}"/>
+				<attribute name="Main-Class" value="${jar.main.class}"/>
+				<attribute name="Manifest-Version" value="2.0"/>
+				<attribute name="Bundle-Name" value="${jar.bundle.name}"/>
+				<attribute name="Bundle-SymbolicName" value="${jar.bundle.symbolic.name}"/>
+			</manifest>
+		</jar>	
+	</target>
+	
+	<target name="srczip" description="builds the source distribution zip file">
+		<zip destfile="${archive.dir}/${src.archive.name}">
+		  <zipfileset dir="${src.dir}" prefix="src">
+			<include name="**/*.java"/>
+			<include name="**/*.xml"/>
+			<include name="**/*.xsd"/>
+			<include name="**/*.txt"/>
+		  </zipfileset>
+		  <zipfileset dir=".">
+		    <include name="build.properties"/>
+		    <include name="build.xml"/>
+		    <include name="license.txt"/>
+		    <include name="README.txt"/>
+		    <include name="what_is_new.txt"/>
+		    <include name=".classpath"/>
+		    <include name=".project"/>
+		    <include name="properties/*.*"/>
+		  </zipfileset>
+		</zip>
+	</target>
+
+  <target name="release" depends="jar, srczip" description="prepares everything for a release"/>
+
+</project>
